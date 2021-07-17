@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body,
+.header,
+.sidebar {
+  background-color: aquamarine;
+  /* height: 100px; */
+}
+
+.header {
+  /* width: 100%; */
+  grid-column: 1 / span 2;
+}
+
+.header__form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.form__input {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+.form__input:first-child {
+  width: 80%;
+}
+
+button {
+  width: 100px;
+}
+
+.sidebar {
+  /* grid-column: 1 / span 1; */
+  /*  height: 100vh; */
+}
+
+.App {
+  width: 800px;
+  margin: 10px auto;
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  grid-template-rows: 20vh 80vh;
+  gap: 10px;
+}
