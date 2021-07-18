@@ -16,6 +16,7 @@ $blue: #359dd9;
 .header,
 .sidebar {
   background-color: $light-gray;
+  padding: 20px;
 }
 
 @mixin editButton {
@@ -30,7 +31,6 @@ $blue: #359dd9;
 
 .header {
   grid-column: 1 / span 2;
-  padding: 20px;
   border-bottom: 2px dashed $dark-gray;
   .header__display {
     width: 100%;

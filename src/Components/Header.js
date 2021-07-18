@@ -43,10 +43,10 @@ export class Header extends React.Component {
       ],
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
   }
-  handleSubmit(e) {
+  handleChange(e) {
     const index = this.state.inputs
       .map((input) => input.id)
       .indexOf(e.target.id);
@@ -77,7 +77,7 @@ export class Header extends React.Component {
                   key={input.id}
                   type={input.type}
                   value={input.value}
-                  onChange={this.handleSubmit}
+                  onChange={this.handleChange}
                 />
               </div>
             ))}
