@@ -1,8 +1,9 @@
 export const SidebarSection = (props) => {
   return (
-    <section>
+    <section className="sidebar__section">
       {props.edit && (
-        <form className="">
+        <form className="section__form">
+          <label htmlFor="title">Title</label>
           <input
             type="text"
             id="title"
@@ -10,6 +11,7 @@ export const SidebarSection = (props) => {
             onChange={props.handleChange}
             name={props.name}
           />
+          <label htmlFor="bullets">Bullet points, separated by commas</label>
           <input
             type="text"
             id="bullets"
@@ -17,25 +19,39 @@ export const SidebarSection = (props) => {
             onChange={props.handleChange}
             name={props.name}
           />
-          <button name={props.name} onClick={props.toggleEdit}>
+
+          <button
+            className="button--edit"
+            name={props.name}
+            onClick={props.toggleEdit}
+          >
             submit
           </button>
         </form>
       )}
       {!props.edit && (
-        <div>
+        <div className="section__display">
           <h2>{props.title}</h2>
           <ul>
             {props.bullets.map((bullet) => (
               <li>{bullet}</li>
             ))}
           </ul>
-          <button name={props.name} onClick={props.toggleEdit} className="">
+
+          <button
+            className="button--edit"
+            name={props.name}
+            onClick={props.toggleEdit}
+          >
             edit
           </button>
         </div>
       )}
-      <button name={props.name} onClick={props.deleteSection}>
+      <button
+        className="button--delete"
+        name={props.name}
+        onClick={props.deleteSection}
+      >
         delete
       </button>
     </section>

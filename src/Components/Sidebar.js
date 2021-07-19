@@ -75,10 +75,12 @@ export class Sidebar extends React.Component {
     return (
       <aside className="sidebar">
         {this.state.sections.length === 0 && (
-          <div>
-            <p>Sidebar</p>
-            <p>Add any extra relevant information here, including skills</p>
-          </div>
+          <p className="sidebar__description">
+            <em>
+              Sidebar -- Add any extra relevant information here, including
+              skills
+            </em>
+          </p>
         )}
         {this.state.sections.map((section) => (
           <SidebarSection
@@ -91,7 +93,9 @@ export class Sidebar extends React.Component {
             deleteSection={this.deleteSection}
           />
         ))}
-        <button onClick={this.addSection}>Add Section</button>
+        <button className="sidebar__button--add" onClick={this.addSection}>
+          Add Section
+        </button>
       </aside>
     );
   }

@@ -5,11 +5,21 @@ $body: "Open Sans", sans-serif;
 $light-gray: #e5e5e5;
 $dark-gray: #424242;
 $blue: #359dd9;
+$pink: #d9369d;
+$small: 14px;
+$medium: 16px;
+$large: 32px;
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: $medium;
+  font-family: $body;
+}
+
+button {
+  cursor: pointer;
 }
 
 .body,
@@ -20,29 +30,55 @@ $blue: #359dd9;
 }
 
 @mixin editButton {
-  width: 100px;
-  align-self: flex-end;
-  padding: 8px;
   border: none;
-  background-color: $blue;
+  background-color: $light-gray;
+  color: $blue;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@mixin deleteButton {
+  border: none;
+  background-color: $light-gray;
+  color: $pink;
+  position: absolute;
+  top: 0;
+  right: left;
+}
+
+@mixin addButton {
+  background-color: #525252;
   color: #fff;
   border-radius: 3px;
+  padding: 5px 0;
+  width: 100%;
+  border: none;
+  display: block;
+  margin: 0 auto;
 }
 
 .header {
   grid-column: 1 / span 2;
   border-bottom: 2px dashed $dark-gray;
+
   .header__display {
     width: 100%;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    font-family: $heading;
     align-items: center;
+    position: relative;
+
     h1 {
       width: 100%;
       margin-bottom: 40px;
+      font-size: $large;
+      font-family: $heading;
+    }
+    p {
+      font-family: $heading;
     }
     button {
       @include editButton();
@@ -54,31 +90,68 @@ $blue: #359dd9;
     justify-content: flex-start;
     column-gap: 10px;
     font-family: $body;
+    position: relative;
     .form__input {
       display: flex;
       flex-direction: column;
       width: 20%;
       flex-wrap: wrap;
       margin: 10px;
-      &:first-child {
+      /* &:first-child {
         width: 80%;
+      } */
+      label {
+        font-size: $small;
       }
       input {
         border: none;
         border-bottom: 1px solid #000;
         background-color: $light-gray;
+        width: 150px;
       }
     }
     button {
       @include editButton();
-      margin: 10px;
     }
   }
 }
 
 .sidebar {
-  /* grid-column: 1 / span 1; */
-  /*  height: 100vh; */
+  .sidebar__description {
+    padding-bottom: 20px;
+    text-align: center;
+  }
+  label {
+    font-size: $small;
+    display: block;
+    padding-top: 10px;
+  }
+  input {
+    width: 100%;
+  }
+  .sidebar__button--add {
+    @include addButton;
+  }
+  .sidebar__section {
+    position: relative;
+    padding: 20px 0 40px;
+    .button--edit {
+      @include editButton();
+    }
+    .button--delete {
+      @include deleteButton();
+    }
+  }
+  .section__display {
+    padding-top: 10px;
+    h2 {
+      font-family: $heading;
+    }
+    ul {
+      list-style-type: circle;
+      margin-left: 20px;
+    }
+  }
 }
 
 .App {
