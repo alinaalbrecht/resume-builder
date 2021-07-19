@@ -1,9 +1,4 @@
 export const SidebarSection = (props) => {
-  /* const inputs = [
-    {
-      id
-    }
-  ] */
   return (
     <section>
       {props.edit && (
@@ -29,7 +24,6 @@ export const SidebarSection = (props) => {
       )}
       {!props.edit && (
         <div>
-          {" "}
           <h2>{props.title}</h2>
           <ul>
             {props.bullets.map((bullet) => (
@@ -41,6 +35,9 @@ export const SidebarSection = (props) => {
           </button>
         </div>
       )}
+      <button name={props.name} onClick={props.deleteSection}>
+        delete
+      </button>
     </section>
   );
 };

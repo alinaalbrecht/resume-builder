@@ -6,18 +6,25 @@ export class Sidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sections: [
-        {
-          edit: true,
-          title: "",
-          bullets: [],
-          name: uniqid(),
-        },
-      ],
+      sections: [],
     };
     this.handleChange = this.handleChange.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
     this.addSection = this.addSection.bind(this);
+    this.deleteSection = this.deleteSection.bind(this);
+  }
+
+  deleteSection(e) {
+    const index = this.state.sections
+      .map((section) => section.name)
+      .indexOf(e.target.name);
+    console.log(index);
+    let updatedSections = Object.assign({}, this.state);
+    updatedSections.sections.splice(index, 1);
+    console.log(this.state.sections);
+    this.setState({
+      updatedSections,
+    });
   }
 
   addSection() {
@@ -48,7 +55,7 @@ export class Sidebar extends React.Component {
       updatedSections,
     });
 
-    console.log(this.state.sections);
+    /* console.log(this.state.sections); */
   }
 
   toggleEdit(e) {
@@ -67,6 +74,12 @@ export class Sidebar extends React.Component {
   render() {
     return (
       <aside className="sidebar">
+        {this.state.sections.length === 0 && (
+          <div>
+            <p>Sidebar</p>
+            <p>Add any extra relevant information here, including skills</p>
+          </div>
+        )}
         {this.state.sections.map((section) => (
           <SidebarSection
             edit={section.edit}
@@ -75,6 +88,7 @@ export class Sidebar extends React.Component {
             handleChange={this.handleChange}
             toggleEdit={this.toggleEdit}
             name={section.name}
+            deleteSection={this.deleteSection}
           />
         ))}
         <button onClick={this.addSection}>Add Section</button>
