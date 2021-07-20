@@ -73,7 +73,7 @@ export class Sidebar extends React.Component {
     return (
       <aside className="sidebar">
         {this.state.sections.length === 0 && (
-          <p className="sidebar__description">
+          <p className="description">
             <em>
               Sidebar -- Add any extra relevant information here, including
               skills

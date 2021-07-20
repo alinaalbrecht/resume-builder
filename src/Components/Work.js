@@ -6,18 +6,7 @@ export class Work extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      workSections: [
-        {
-          edit: true,
-          jobTitle: "",
-          startDate: "",
-          endDate: "",
-          company: "",
-          location: "",
-          description: [],
-          name: uniqid(),
-        },
-      ],
+      workSections: [],
     };
     this.handleChange = this.handleChange.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
@@ -88,7 +77,7 @@ export class Work extends React.Component {
       <section className="work">
         <h2>Professional Experience</h2>
         {this.state.workSections.length === 0 && (
-          <p className="work__description">
+          <p className="description">
             <em>Here's where you add your work experience</em>
           </p>
         )}

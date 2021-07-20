@@ -3,7 +3,7 @@ export const SidebarSection = (props) => {
     <article className="sidebar__section">
       {props.edit && (
         <form className="section__form">
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title">section title</label>
           <input
             type="text"
             id="title"
@@ -11,7 +11,7 @@ export const SidebarSection = (props) => {
             onChange={props.handleChange}
             name={props.name}
           />
-          <label htmlFor="bullets">Bullet points, separated by commas</label>
+          <label htmlFor="bullets">bullet points, separated by commas</label>
           <input
             type="text"
             id="bullets"

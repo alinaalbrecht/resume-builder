@@ -3,7 +3,7 @@ export const EducationSection = (props) => {
     <article className="education__section">
       {props.edit && (
         <form className="section__form">
-          <label htmlFor="degreeType">Degree Type</label>
+          <label htmlFor="degreeType">name of certificate</label>
           <input
             type="text"
             id="degreeType"

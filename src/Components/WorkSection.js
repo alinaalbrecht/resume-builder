@@ -3,7 +3,7 @@ export const WorkSection = (props) => {
     <article className="work__section">
       {props.edit && (
         <form className="section__form">
-          <label htmlFor="jobTitle">Job Title</label>
+          <label htmlFor="jobTitle">job title</label>
           <input
             type="text"
             id="jobTitle"
@@ -44,7 +44,7 @@ export const WorkSection = (props) => {
             name={props.name}
           />
           <label htmlFor="description">
-            accomplishments and responsibilities
+            accomplishments and responsibilities, separated by commas
           </label>
           <input
             type="text"

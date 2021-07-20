@@ -55,6 +55,14 @@ article {
   padding: 20px 0 40px;
 }
 
+.button--mode {
+  width: 800px;
+  color: #fff;
+  border: none;
+  background: $blue;
+  padding: 10px 0;
+}
+
 .button--edit {
   border: none;
   background-color: $light-gray;
@@ -82,6 +90,10 @@ article {
   border: none;
   display: block;
   margin: 0 auto;
+}
+
+.description {
+  padding-bottom: 20px;
 }
 
 .header {
@@ -134,8 +146,7 @@ article {
 }
 
 .sidebar {
-  .sidebar__description {
-    padding-bottom: 20px;
+  .description {
     text-align: center;
   }
 
@@ -164,7 +175,44 @@ article {
   margin: 10px auto;
   display: grid;
   grid-template-columns: 25% 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto 1fr auto;
   gap: 10px;
   height: 100vh;
+}
+
+.App__title {
+  font-family: $heading;
+  font-size: $large;
+  width: 800px;
+  text-align: center;
+  background-color: $dark-gray;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.resume--preview {
+  grid-template-rows: auto 1fr;
+  .button--delete,
+  .button--add,
+  .button--edit,
+  input,
+  label,
+  .description,
+  .App__title {
+    display: none;
+  }
+
+  article {
+    padding-top: 0;
+    padding-bottom: 20px;
+  }
+
+  .sidebar {
+    .section__display {
+      padding-top: 0;
+    }
+  }
+  .education {
+    padding-top: 0;
+  }
 }

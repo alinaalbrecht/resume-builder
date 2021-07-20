@@ -6,18 +6,7 @@ export class Education extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      educationSections: [
-        {
-          edit: true,
-          degreeType: "",
-          startDate: "",
-          endDate: "",
-          university: "",
-          location: "",
-          finalGrade: "",
-          name: uniqid(),
-        },
-      ],
+      educationSections: [],
     };
     this.handleChange = this.handleChange.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
@@ -85,7 +74,7 @@ export class Education extends React.Component {
       <section className="education">
         <h2>Education</h2>
         {this.state.educationSections.length === 0 && (
-          <p className="education__description">
+          <p className="description">
             <em>Here's where you add your educational background</em>
           </p>
         )}
