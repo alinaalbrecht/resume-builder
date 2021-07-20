@@ -33,8 +33,8 @@ export const SidebarSection = (props) => {
         <div className="section__display">
           <h2>{props.title}</h2>
           <ul>
-            {props.bullets.map((bullet) => (
-              <li>{bullet}</li>
+            {props.bullets.map((bullet, index) => (
+              <li key={index + 1}>{bullet}</li>
             ))}
           </ul>
 

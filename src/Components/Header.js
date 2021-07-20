@@ -1,4 +1,5 @@
 import React from "react";
+import uniqid from "uniqid";
 export class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -9,36 +10,43 @@ export class Header extends React.Component {
           type: "text",
           id: "name",
           value: "",
+          key: uniqid(),
         },
         {
           type: "email",
           id: "email",
           value: "",
+          key: uniqid(),
         },
         {
           type: "tel",
           id: "phone",
           value: "",
+          key: uniqid(),
         },
         {
           type: "text",
           id: "street",
           value: "",
+          key: uniqid(),
         },
         {
           type: "text",
           id: "city",
           value: "",
+          key: uniqid(),
         },
         {
           type: "number",
           id: "zip",
           value: "",
+          key: uniqid(),
         },
         {
           type: "text",
           id: "country",
           value: "",
+          key: uniqid(),
         },
       ],
     };
@@ -70,11 +78,10 @@ export class Header extends React.Component {
         {this.state.edit && (
           <form className="header__form">
             {this.state.inputs.map((input) => (
-              <div className="form__input">
+              <div key={input.key} className="form__input">
                 <label htmlFor={input.id}>{input.id}</label>
                 <input
                   id={input.id}
-                  key={input.id}
                   type={input.type}
                   value={input.value}
                   onChange={this.handleChange}
@@ -90,7 +97,7 @@ export class Header extends React.Component {
           <div className="header__display">
             <h1>{this.state.inputs[0].value}</h1>
             {this.state.inputs.slice(1).map((input) => (
-              <p key={input.value}>{input.value}</p>
+              <p key={input.key}>{input.value}</p>
             ))}
             <button className="button--edit" onClick={this.toggleEdit}>
               Edit

@@ -102,6 +102,7 @@ export class Education extends React.Component {
             toggleEdit={this.toggleEdit}
             name={section.name}
             deleteSection={this.deleteSection}
+            key={section.name}
           />
         ))}
         <button className="button--add" onClick={this.addSection}>

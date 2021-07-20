@@ -72,8 +72,8 @@ export const WorkSection = (props) => {
             {props.company}, {props.location}
           </p>
           <ul>
-            {props.description.map((bullet) => (
-              <li>{bullet}</li>
+            {props.description.map((bullet, index) => (
+              <li key={index + 1}>{bullet}</li>
             ))}
           </ul>
 
