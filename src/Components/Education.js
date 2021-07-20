@@ -1,26 +1,36 @@
 import React from "react";
-import { SidebarSection } from "./SidebarSection";
+import { EducationSection } from "./EducationSection";
 import uniqid from "uniqid";
 
-export class Sidebar extends React.Component {
+export class Education extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sections: [],
+      educationSections: [
+        {
+          edit: true,
+          degreeType: "",
+          startDate: "",
+          endDate: "",
+          university: "",
+          location: "",
+          finalGrade: "",
+          name: uniqid(),
+        },
+      ],
     };
     this.handleChange = this.handleChange.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
     this.addSection = this.addSection.bind(this);
     this.deleteSection = this.deleteSection.bind(this);
   }
-
   deleteSection(e) {
-    const index = this.state.sections
+    const index = this.state.educationSections
       .map((section) => section.name)
       .indexOf(e.target.name);
 
     let updatedSections = Object.assign({}, this.state);
-    updatedSections.sections.splice(index, 1);
+    updatedSections.educationSections.splice(index, 1);
 
     this.setState({
       updatedSections,
@@ -29,10 +39,14 @@ export class Sidebar extends React.Component {
 
   addSection() {
     let updatedSections = Object.assign({}, this.state);
-    updatedSections.sections.push({
+    updatedSections.educationSections.push({
       edit: true,
-      title: "",
-      bullets: [],
+      degreeType: "",
+      startDate: "",
+      endDate: "",
+      university: "",
+      location: "",
+      finalGrade: "",
       name: uniqid(),
     });
     this.setState({
@@ -42,15 +56,12 @@ export class Sidebar extends React.Component {
 
   handleChange(e) {
     let value = e.target.value;
-    if (e.target.id === "bullets") {
-      value = value.split(",");
-    }
-    const index = this.state.sections
+    const index = this.state.educationSections
       .map((section) => section.name)
       .indexOf(e.target.name);
     const field = e.target.id;
     let updatedSections = Object.assign({}, this.state);
-    updatedSections.sections[index][field] = value;
+    updatedSections.educationSections[index][field] = value;
     this.setState({
       updatedSections,
     });
@@ -58,33 +69,35 @@ export class Sidebar extends React.Component {
 
   toggleEdit(e) {
     e.preventDefault();
-    const index = this.state.sections
+    const index = this.state.educationSections
       .map((section) => section.name)
       .indexOf(e.target.name);
 
     let updatedSections = Object.assign({}, this.state);
-    updatedSections.sections[index].edit =
-      !updatedSections.sections[index].edit;
+    updatedSections.educationSections[index].edit =
+      !updatedSections.educationSections[index].edit;
     this.setState({
       updatedSections,
     });
   }
   render() {
     return (
-      <aside className="sidebar">
-        {this.state.sections.length === 0 && (
-          <p className="sidebar__description">
-            <em>
-              Sidebar -- Add any extra relevant information here, including
-              skills
-            </em>
+      <section className="education">
+        <h2>Education</h2>
+        {this.state.educationSections.length === 0 && (
+          <p className="education__description">
+            <em>Here's where you add your educational background</em>
           </p>
         )}
-        {this.state.sections.map((section) => (
-          <SidebarSection
+        {this.state.educationSections.map((section) => (
+          <EducationSection
             edit={section.edit}
-            title={section.title}
-            bullets={section.bullets}
+            degreeType={section.degreeType}
+            startDate={section.startDate}
+            endDate={section.endDate}
+            university={section.university}
+            location={section.location}
+            finalGrade={section.finalGrade}
             handleChange={this.handleChange}
             toggleEdit={this.toggleEdit}
             name={section.name}
@@ -94,7 +107,7 @@ export class Sidebar extends React.Component {
         <button className="button--add" onClick={this.addSection}>
           Add Section
         </button>
-      </aside>
+      </section>
     );
   }
 }

@@ -1,6 +1,6 @@
 export const SidebarSection = (props) => {
   return (
-    <section className="sidebar__section">
+    <article className="sidebar__section">
       {props.edit && (
         <form className="section__form">
           <label htmlFor="title">Title</label>
@@ -54,6 +54,6 @@ export const SidebarSection = (props) => {
       >
         delete
       </button>
-    </section>
+    </article>
   );
 };

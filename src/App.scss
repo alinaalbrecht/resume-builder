@@ -8,6 +8,7 @@ $blue: #359dd9;
 $pink: #d9369d;
 $small: 14px;
 $medium: 16px;
+$medium-large: 18px;
 $large: 32px;
 
 * {
@@ -22,14 +23,39 @@ button {
   cursor: pointer;
 }
 
-.body,
+h1,
+h2,
+h3 {
+  font-family: $heading;
+}
+
+h2 {
+  font-size: $medium-large;
+}
+
+.experience,
 .header,
 .sidebar {
   background-color: $light-gray;
   padding: 20px;
 }
 
-@mixin editButton {
+ul {
+  list-style-type: circle;
+  margin-left: 20px;
+}
+
+label {
+  font-size: $small;
+  display: block;
+  padding-top: 10px;
+}
+article {
+  position: relative;
+  padding: 20px 0 40px;
+}
+
+.button--edit {
   border: none;
   background-color: $light-gray;
   color: $blue;
@@ -38,7 +64,7 @@ button {
   right: 0;
 }
 
-@mixin deleteButton {
+.button--delete {
   border: none;
   background-color: $light-gray;
   color: $pink;
@@ -47,7 +73,7 @@ button {
   right: left;
 }
 
-@mixin addButton {
+.button--add {
   background-color: #525252;
   color: #fff;
   border-radius: 3px;
@@ -80,9 +106,6 @@ button {
     p {
       font-family: $heading;
     }
-    button {
-      @include editButton();
-    }
   }
   .header__form {
     display: flex;
@@ -97,23 +120,17 @@ button {
       width: 20%;
       flex-wrap: wrap;
       margin: 10px;
-      /* &:first-child {
-        width: 80%;
-      } */
-      label {
-        font-size: $small;
-      }
+
       input {
-        border: none;
-        border-bottom: 1px solid #000;
-        background-color: $light-gray;
         width: 150px;
       }
     }
-    button {
-      @include editButton();
-    }
   }
+}
+
+.section__form {
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar {
@@ -121,36 +138,24 @@ button {
     padding-bottom: 20px;
     text-align: center;
   }
-  label {
-    font-size: $small;
-    display: block;
-    padding-top: 10px;
-  }
+
   input {
     width: 100%;
   }
-  .sidebar__button--add {
-    @include addButton;
-  }
-  .sidebar__section {
-    position: relative;
-    padding: 20px 0 40px;
-    .button--edit {
-      @include editButton();
-    }
-    .button--delete {
-      @include deleteButton();
-    }
-  }
   .section__display {
     padding-top: 10px;
-    h2 {
-      font-family: $heading;
-    }
-    ul {
-      list-style-type: circle;
-      margin-left: 20px;
-    }
+  }
+}
+
+.experience {
+  .education {
+    padding-top: 40px;
+  }
+  h2 {
+    padding-bottom: 10px;
+  }
+  h3 {
+    padding-top: 10px;
   }
 }
 

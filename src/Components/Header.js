@@ -81,7 +81,9 @@ export class Header extends React.Component {
                 />
               </div>
             ))}
-            <button onClick={this.toggleEdit}>submit</button>
+            <button className="button--edit" onClick={this.toggleEdit}>
+              submit
+            </button>
           </form>
         )}
         {!this.state.edit && (
@@ -90,7 +92,9 @@ export class Header extends React.Component {
             {this.state.inputs.slice(1).map((input) => (
               <p key={input.value}>{input.value}</p>
             ))}
-            <button onClick={this.toggleEdit}>Edit</button>
+            <button className="button--edit" onClick={this.toggleEdit}>
+              Edit
+            </button>
           </div>
         )}
       </header>
